@@ -1,0 +1,106 @@
+.container {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.presentation {
+  width: 100%;
+  background-color: #1e1e28;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin-top: -20px;
+}
+
+.description {
+  width: 100%;
+  background-color: #dcdcdc;
+  color: #1e1e28;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 20px;
+}
+
+.trial {
+  margin: auto;
+  width: 50%;
+  color: #1e1e28;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.trial h3 {
+  font-size: 18pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+.input-group {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-top: 30px;
+}
+
+.form-group label {
+  font-size: 14pt;
+}
+
+.tip {
+  font-size: 8pt;
+}
+
+.powered {
+  margin: auto;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.powered img {
+  width: 225px;
+  height: 75px;
+}
+
+.developer {
+  text-align: center;
+  font-size: 9pt;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.panels {
+  margin: auto;
+  width: 50%;
+  margin-top: 50px;
+}
+
+#login {
+  margin: auto;
+  width: 25%;
+  text-align: center;
+}
+
+#login label {
+  font-size: 11pt;
+}
+
+#listagem, #visualizacao, #edicao {
+  margin: auto;
+  width: 75%;
+}
+
+#visualizacao span {
+  font-weight: bold;
+}
+
+#visualizacao .panel-body {
+  font-size: 10pt;
+}
+
+#edicao label {
+  font-size: 10pt;
+}

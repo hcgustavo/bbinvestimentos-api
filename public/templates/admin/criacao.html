@@ -1,0 +1,262 @@
+<div id="edicao">
+  <div class="panel panel-info">
+    <div class="panel-heading">CRIAR NOVO FUNDO</div>
+    <div class="panel-body">
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="id" class="col-sm-2 control-label">ID</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="fundo.id">
+          </div>
+        </div>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="codigo" class="col-sm-2 control-label">Código</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="fundo.codigo">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nome" class="col-sm-2 control-label">Nome</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="fundo.nome">
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label for="prazoCarteira" class="col-sm-2 control-label">Prazo da carteira</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.prazoCarteira">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="categoria" class="col-sm-2 control-label">Categoria</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.categoria">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rentabilidadeDia" class="col-sm-2 control-label">Rentabilidade (%) (dia)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.rentabilidade.dia">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rentabilidadeMes" class="col-sm-2 control-label">Rentabilidade (%) (mês)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.rentabilidade.mes">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rentabilidadeMesAnterior" class="col-sm-2 control-label">Rentabilidade (%) (mês anterior)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.rentabilidade.mesAnterior">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rentabilidadeAno" class="col-sm-2 control-label">Rentabilidade (%) (ano)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.rentabilidade.ano">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rentabilidade12Meses" class="col-sm-2 control-label">Rentabilidade (%) (últimos 12 meses)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.rentabilidade.meses12">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rentabilidade24Meses" class="col-sm-2 control-label">Rentabilidade (%) (últimos 24 meses)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.rentabilidade.meses24">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rentabilidade36Meses" class="col-sm-2 control-label">Rentabilidade (%) (últimos 36 meses)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.rentabilidade.meses36">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="plMedio12Meses" class="col-sm-2 control-label">Patrimônio líquido médio (últimos 12 meses) (milhões R$)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.plMedio12Meses">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="historicoCotacao" class="col-sm-2 control-label">Histórico de cotações</label>
+        <div class="col-sm-10">
+          <table class="table table-bordered" id="historicoCotacaoTable">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" class="form-control"></td>
+                <td><input type="text" class="form-control"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="2"><button type="button" class="btn btn-default" ng-click="adicionarCota()">
+                  <span class="glyphicon glyphicon-plus"></span> Adicionar</button>
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="taxaAdm" class="col-sm-2 control-label">Taxa de administração (%)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.taxaAdm">
+        </div>
+      </div>
+
+      <br>
+      <span>Outras informações:</span>
+      <div class="form-group">
+        <label for="descricao" class="col-sm-2 control-label">Descrição</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" rows="5" ng-model="fundo.info.descricao"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="aplicacaoInicial" class="col-sm-2 control-label">Aplicação inicial</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.aplicacaoInicial">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="aplicacaoesSubsequentes" class="col-sm-2 control-label">Aplicações subsequentes</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.aplicacoesSubsequentes">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="resgate" class="col-sm-2 control-label">Resgate</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.resgate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="saldoMinimo" class="col-sm-2 control-label">Saldo mínimo</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.saldoMinimo">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cotaAplicacao" class="col-sm-2 control-label">Cota de aplicação</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.cotaAplicacao">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cotaResgate" class="col-sm-2 control-label">Cota de resgate</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.cotaResgate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="creditoContaCorrente" class="col-sm-2 control-label">Crédito em conta corrente</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.creditoContaCorrente">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="horarioLimiteMovimentacao" class="col-sm-2 control-label">Horário limite de movimentação</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.horarioLimiteMovimentacao">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="aplicacaoResgateProgramado" class="col-sm-2 control-label">Aplicação e resgate programados</label>
+        <div class="col-sm-10">
+          <select class="form-control" ng-model="fundo.info.aplicacaoResgateProgramado">
+            <option value="true" ng-selected="fundo.info.aplicacaoResgateProgramado == true">Sim</option>
+            <option value="false" ng-selected="fundo.info.aplicacaoResgateProgramado == false">Não</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="opcaoResgateAutomatico" class="col-sm-2 control-label">Opção de resgate automático</label>
+        <div class="col-sm-10">
+          <select class="form-control" ng-model="fundo.info.opcaoResgateAutomatico">
+            <option value="true" ng-selected="fundo.info.opcaoResgateAutomatico == true">Sim</option>
+            <option value="false" ng-selected="fundo.info.opcaoResgateAutomatico == false">Não</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="grauRisco" class="col-sm-2 control-label">Grau de risco</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.grauRisco">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dataInicioFuncionamento" class="col-sm-2 control-label">Data de ínicio de funcionamento</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.dataInicioFuncionamento">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="taxaSaida" class="col-sm-2 control-label">Taxa de saída</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.taxaSaida">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="taxaPerformance" class="col-sm-2 control-label">Taxa de performance</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.taxaPerformance">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="categoriaANBIMA" class="col-sm-2 control-label">Categoria ANBIMA</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="fundo.info.categoriaANBIMA">
+        </div>
+      </div>
+
+      <br>
+      <div class="form-inline">
+        <button type="button" class="btn btn-success" ng-click="adicionar()"><span class="glyphicon glyphicon-ok"></span> Adicionar</button>
+        <button type="button" class="btn btn-danger" ng-click="cancelar()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+      </div>
+    </form>
+
+    </div>
+  </div>
+</div>

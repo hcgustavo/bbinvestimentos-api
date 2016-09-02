@@ -1,0 +1,40 @@
+<div id="listagem">
+  <h4>Lista - Fundos de investimento</h4>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="4">
+          <button type="button" class="btn btn-default" ng-click="criarFundo()">
+            <span class="glyphicon glyphicon-plus"></span> Novo Fundo
+          </button>
+        </th>
+      </tr>
+      <tr>
+        <th>ID</th>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = "f in fundos">
+        <td>{{f.id}}</td>
+        <td>{{f.codigo}}</td>
+        <td>{{f.nome}}</td>
+        <td>
+          <button type="button" class="btn btn-default" ng-click="visualizarFundo(f.id)">
+            <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+          </button>
+          <button type="button" class="btn btn-default" ng-click="editarFundo(f.id)">
+            <span class="glyphicon glyphicon-pencil"></span> Editar
+          </button>
+          <button type="button" class="btn btn-default" ng-click="excluirFundo(f.id)">
+            <span class="glyphicon glyphicon-trash"></span> Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

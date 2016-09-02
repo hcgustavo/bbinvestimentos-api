@@ -1,0 +1,50 @@
+<div id="visualizacao">
+  <div class="panel panel-info">
+    <div class="panel-heading">{{fundo.nome}}</div>
+    <div class="panel-body">
+      <p><span>ID: </span>{{fundo.id}}</p>
+      <p><span>Código: </span>{{fundo.codigo}}</p>
+      <p><span>Prazo da carteira: </span>{{fundo.prazoCarteira}}</p>
+      <p><span>Categoria: </span>{{fundo.categoria}}</p>
+      <p><span>Rentabilidade (%) (dia): </span>{{fundo.rentabilidade.dia}}</p>
+      <p><span>Rentabilidade (%) (mês): </span>{{fundo.rentabilidade.mes}}</p>
+      <p><span>Rentabilidade (%) (mês anterior): </span>{{fundo.rentabilidade.mesAnterior}}</p>
+      <p><span>Rentabilidade (%) (ano): </span>{{fundo.rentabilidade.ano}}</p>
+      <p><span>Rentabilidade (%) (últimos 12 meses): </span>{{fundo.rentabilidade.meses12}}</p>
+      <p><span>Rentabilidade (%) (últimos 24 meses): </span>{{fundo.rentabilidade.meses24}}</p>
+      <p><span>Rentabilidade (%) (últimos 36 meses): </span>{{fundo.rentabilidade.meses36}}</p>
+      <p><span>Patrimônio líquido médio (últimos 12 meses) (Milhões R$): </span>{{fundo.plMedio12Meses}}</p>
+      <p><span>Taxa de administração (%): </span>{{fundo.taxaAdm}}</p>
+      <p><span>Histórico de cotações: </span></p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr ng-repeat="c in fundo.historicoCotacao">
+            <td>{{c.data}}</td>
+            <td>{{c.valor}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><span>Outras informações:</span></p>
+      <div style="border:1px solid black; padding-left:5px;">
+        <p><span>Descrição: </span>{{fundo.info.descricao}}</p>
+        <p><span>Aplicação inicial: </span>{{fundo.info.aplicacaoInicial}}</p>
+        <p><span>Aplicações subsequentes: </span>{{fundo.info.aplicacoesSubsequentes}}</p>
+        <p><span>Resgate: </span>{{fundo.info.resgate}}</p>
+        <p><span>Saldo mínimo: </span>{{fundo.info.saldoMinimo}}</p>
+        <p><span>Cota aplicação: </span>{{fundo.info.cotaAplicacao}}</p>
+        <p><span>Cota resgate: </span>{{fundo.info.cotaResgate}}</p>
+        <p><span>Crédito em conta corrente: </span>{{fundo.info.creditoContaCorrente}}</p>
+        <p><span>Horário limite de movimentação: </span>{{fundo.info.horarioLimiteMovimentacao}}</p>
+        <p><span>Aplicação e resgate programados: </span>{{fundo.info.aplicacaoResgateProgramado}}</p>
+        <p><span>Opção de resgate automático: </span>{{fundo.info.opcaoResgateAutomatico}}</p>
+        <p><span>Grau de risco: </span>{{fundo.info.grauRisco}}</p>
+        <p><span>Data de ínico de funcionamento: </span>{{fundo.info.dataInicioFuncionamento}}</p>
+        <p><span>Taxa de saída: </span>{{fundo.info.taxaSaida}}</p>
+        <p><span>Taxa de performance: </span>{{fundo.info.taxaPerformance}}</p>
+        <p><span>Categoria ANBIMA: </span>{{fundo.info.categoriaANBIMA}}</p>
+      </div>
+
+      <a href="/#/listagem" class="btn btn-primary" role="button" style="margin-top:10px">Voltar</a>
+    </div>
+  </div>
+</div>

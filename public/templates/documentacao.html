@@ -1,0 +1,393 @@
+<div class="presentation">
+  <h1><strong>Documentação da BB Investimentos API</strong></h1>
+</div>
+
+<div class="panels" style="width:70%;">
+
+  <div class="panel-group">
+
+    <!-- INFORMAÇÕES -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="documentacao#collapse1">Informações</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul>
+            <li>Esta API é apenas para consumo. Assim, somente o método HTTP GET está disponível.</li>
+            <li>Não é necessário realizar nenhuma autenticação. Todos os recursos estão abertamente disponíveis.</li>
+            <li>A BB Investimentos API foi desenvolvida de forma independente. O Banco do Brasil não tem nenhum envolvimento com o projeto.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </br>
+
+  <!-- POLÍTICA DE USO -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="documentacao#collapse2">Política de uso</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+        A BB Investimentos API é livre e todos podem utilizá-la. Pedimos apenas que todos os desenvolvedores sigam as seguintes regras:
+        <ul>
+          <li>Armazene localmente os recursos que você utilizar.</li>
+          <li>Todos os recursos possuem um timestamp. Dessa forma, use-o para saber quando houve modificações em um determinado recurso.</li>
+          <li>Os recursos são atualizados uma vez por dia. Portanto, não há necessidade de sobrecarregar o servidor com chamadas repetitivas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</br>
+
+<!-- RECURSOS -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="documentacao#collapse3">Recursos</a>
+    </h4>
+  </div>
+  <div id="collapse3" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p style="font-size:18pt"><strong>Todos os fundos</strong></p>
+      <p style="font-size:16pt">GET api/fundos/</p>
+      <p>Obtém uma lista com todos os fundos</p>
+      <p style="font-size:9pt">Informações retornadas:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Tipo de dado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>total</td>
+              <td>Quantidade total de fundos de investimento</td>
+              <td>Inteiro</td>
+            </tr>
+            <tr>
+              <td>resultados</td>
+              <td>Lista contendo nome, id e código dos fundos</td>
+              <td>Lista: nome (String), id (Inteiro) e código (String)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:9pt">Exemplo de retorno:</p>
+      <samp>
+        <textarea class="form-control" rows="8" readonly="">
+          {
+            "total": 2,
+            "resultados": [
+            {"id": 1, "codigo" : "BBRFCP200", "nome": "BB Renda Fixa CP 200"},
+            {"id": 2, "codigo" : "BBRFCP50M", "nome": "BB Renda Fixa CP 50 Mil"}
+            ]
+          }
+        </textarea>
+      </samp>
+
+    </br><hr></br>
+
+    <p style="font-size:18pt"><strong>Fundo específico</strong></p>
+    <p style="font-size:16pt">GET api/fundos/{id ou código}</p>
+    <p>Obtém um único fundo. Pode-se usar o id numérico ou código alfa-numérico do fundo.</p>
+    <p style="font-size:9pt">Informações retornadas:</p>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Tipo de dado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>id</td>
+            <td>ID do fundo</td>
+            <td>Inteiro</td>
+          </tr>
+          <tr>
+            <td>codigo</td>
+            <td>Código alfa-numérico do fundo</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>nome</td>
+            <td>Nome do fundo</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>prazoCarteira</td>
+            <td>Prazo da carteira (curto, médio ou longo prazo)</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>categoria</td>
+            <td>Categoria do fundo (renda fixa ou renda variável)</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>rentabilidade</td>
+            <td>Rentabilidades (%) do dia, mês, mês passado, ano; e ainda últimos 12, 24 e 36 meses</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>plMedio12Meses</td>
+            <td>Patrimônio líquido do fundo (em milhões R$) nos últimos 12 meses</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>taxaAdm</td>
+            <td>Taxa de administração do fundo (%)</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>historicoCotacao</td>
+            <td>Histórico de todas as cotações do fundo até o momento (datas e valores)</td>
+            <td>Lista: data (String) e valor (Decimal)</td>
+          </tr>
+          <tr>
+            <td>info</td>
+            <td>Contém várias informações do fundo. Consulte a tabela abaixo para ver todos os dados contidos em <em><strong>info</strong></em></td>
+            <td>
+              (Ver tabela abaixo)
+            </td>
+          </tr>
+          <tr>
+            <td>createdAt</td>
+            <td>Timestamp que marca quando o fundo foi criado no banco de dados</td>
+            <td>Timestamp</td>
+          </tr>
+          <tr>
+            <td>updatedAt</td>
+            <td>Timestamp que marca quando o fundo foi modificado no banco de dados</td>
+            <td>Timestamp</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:9pt">Dados contidos em <em><strong>info:</strong></em></p>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Tipo de dado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>descricao</td>
+            <td>Descrição textual do fundo</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>aplicacaoInicial</td>
+            <td>Valor da aplicação inicial</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>aplicacoesSubsequentes</td>
+            <td>Valor das aplicações subsequentes</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>resgate</td>
+            <td>Valor para resgate</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>saldoMinimo</td>
+            <td>Saldo mínimo</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>cotaAplicacao</td>
+            <td>Cota de que dia será considerada na aplicação</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>cotaResgate</td>
+            <td>Cota de qual dia será considerada no resgate</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>creditoContaCorrente</td>
+            <td>Quando se dará o crédito em conta corrente após resgate</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>horarioLimiteMovimentacao</td>
+            <td>Horário limite para movimentação do fundo</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>aplicacaoResgateProgramado</td>
+            <td>Indica se fundo permite aplicação e resgate programados</td>
+            <td>Boolean</td>
+          </tr>
+          <tr>
+            <td>opcaoResgateAutomatico</td>
+            <td>Indica se fundo permite resgate automático</td>
+            <td>Boolean</td>
+          </tr>
+          <tr>
+            <td>grauRisco</td>
+            <td>Grau de risco do fundo (baixo, médio ou alto)</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>dataInicioFuncionamento</td>
+            <td>Data de início do funcionamento do fundo</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>taxaSaida</td>
+            <td>Taxa de saída</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>taxaPerformance</td>
+            <td>Taxa de performance</td>
+            <td>Decimal</td>
+          </tr>
+          <tr>
+            <td>categoriaANBIMA</td>
+            <td>Categoria do fundo de acordo com a AMBIMA</td>
+            <td>String</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:9pt">Exemplo de retorno:</p>
+    <samp>
+      <textarea class="form-control" rows="8" readonly="">
+        {
+          "id": 1,
+          "codigo": "BBRFCP200",
+          "nome": "BB Renda Fixa CP 200",
+          "prazoCarteira": "Curto Prazo",
+          "categoria": "Renda Fixa",
+          "rentabilidade": {
+            "dia": 0.042,
+            "mes": 0.809,
+            "mesPassado": 0.894,
+            "ano:" 7.154,
+            "meses12": 11.096,
+            "meses24": 21.328,
+            "meses36": 30.075
+          },
+          "plMedio12Meses": 5.908,
+          "taxaAdm": 2.50,
+          "historicoCotacao": [
+          {"data": "24-08-2016", "valor": 3.872509064},
+          {"data": "25-08-2016", "valor":  3.883505064}
+          ],
+          "info": {
+            "descricao": "Fundo de renda fixa com valor de aplicação inicial de R$200,00",
+            "aplicacaoInicial": 200,
+            "aplicacoesSubsequentes": 50,
+            "resgate": 50,
+            "saldoMinimo": 50,
+            "cotaAplicacao": "D + 00",
+            "cotaResgate": "D + 00",
+            "creditoContaCorrente": "D + 00",
+            "horarioLimiteMovimentacao": "23:00",
+            "aplicacaoEResgateProgramado": true,
+            "opcaoResgateAutomatico": true,
+            "grauRisco": "Muito Baixo",
+            "dataInicioFuncionamento": "26-06-2002",
+            "taxaSaida": 0,
+            "taxaPerformance": 0,
+            "categoriaANBIMA": "Renda Fixa Duração Baixa Soberano"
+          },
+          "createdAt": "2016-08-26T16:03:49.000Z",
+          "updatedAt": "2016-08-26T16:03:49.000Z"
+        }
+      </textarea>
+    </samp>
+  </div>
+</div>
+</div>
+
+</br>
+
+<!-- FUNDOS DISPONÍVEIS -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="documentacao#collapse4">Fundos disponíveis</a>
+    </h4>
+  </div>
+  <div id="collapse4" class="panel-collapse collapse">
+    <div class="panel-body">
+      Os fundos de investimento atualmente disponíveis pela BB Investimentos API são:
+      <ul>
+        <li>BB Renda Fixa CP 200</li>
+        <li>BB Renda Fixa CP 50 Mil</li>
+        <li>BB Renda Fixa 500</li>
+        <li>BB Renda Fixa Simples</li>
+        <li>BB Renda Fixa DI Social 50</li>
+        <li>BB Renda Fixa Ref DI 500</li>
+        <li>BB Camb Dolar LP 20 Mil</li>
+        <li>BB Camb Dolar LP Mil</li>
+        <li>BB Camb Dolar LP 100 Mil</li>
+        <li>BB RF Divida Externa Mil</li>
+        <li>BB Renda Fixa LP 100</li>
+        <li>BB Renda Fixa LP 50 Mil</li>
+        <li>BB Renda Fixa LP Ind 5 Mil</li>
+        <li>BB Renda Fixa LP 90 Mil</li>
+        <li>BB Renda Fixa LP Parc 10 Mil</li>
+        <li>BB Renda Fixa Ref DI 250 Mil</li>
+        <li>BB Renda Fixa Ref DI 50 Mil</li>
+        <li>BB Renda Fixa Ref DI 90 Mil</li>
+        <li>BB Multimercado Macro LP 200</li>
+        <li>BB Camb Euro LP Mil</li>
+        <li>FAPI</li>
+        <li>BB Ações Ibov Index</li>
+        <li>BB Ações IbrX Index</li>
+        <li>BB Ações Ibov Ativo</li>
+        <li>BB Ações Tecnologia</li>
+        <li>BB Ações Energia</li>
+        <li>BB Ações Petrobras</li>
+        <li>BB Ações ISE Jovem</li>
+        <li>BB Ações Small Caps</li>
+        <li>BB Ações Dividendos</li>
+        <li>BB Ações Exportação</li>
+        <li>BB Ações Multi Setor</li>
+        <li>BB Ações Vale</li>
+        <li>BB Ações Aloc ETF FI</li>
+        <li>BB Ações Consumo</li>
+        <li>BB Ações Setor Financeiro</li>
+        <li>BB Ações BB</li>
+        <li>BB Ações Cielo</li>
+        <li>BB Ações Infra</li>
+        <li>BB Ações Div Midcaps</li>
+        <li>BB Ações BDR Nível I</li>
+        <li>BB Fund Classe A</li>
+        <li>BB Fund Classe D</li>
+        <li>BB Fund Classe F</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</br>
+
+</div>
+
+</div>
