@@ -17,6 +17,12 @@ angular.module("bbInvestimentosAPI.controllers", [])
 })
 
 .controller("LoginController", function($scope, $location, Usuario, Token) {
+  if(Token.get() == "") {
+    $location.path('/admin');
+  }else {
+    $location.path('/listagem');
+  }
+
   $scope.autenticar = function(usuario) {
     Usuario.autenticaUsuario(usuario).then(function(doc) {
       if(doc.data.success == false) {
