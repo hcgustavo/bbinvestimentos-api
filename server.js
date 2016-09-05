@@ -36,7 +36,7 @@ var apiRoutes = express.Router();
 
 // route para retornar todos os fundos (GET http://localhost:8080/api/fundos)
 apiRoutes.get('/fundos', function(req, res) {
-  Fundo.find({}).select('id codigo nome').exec(function(err, fundos) {
+  Fundo.find({}).select('id codigo nome').sort({id: 'asc'}).exec(function(err, fundos) {
     if(err) throw err;
 
     var length = fundos.length;
