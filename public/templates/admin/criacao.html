@@ -102,6 +102,11 @@
           <table class="table table-bordered" id="historicoCotacaoTable">
             <thead>
               <tr>
+                <th colspan="2"><button type="button" class="btn btn-default" ng-click="adicionarCota()">
+                  <span class="glyphicon glyphicon-plus"></span> Adicionar</button>
+                </th>
+              </tr>
+              <tr>
                 <th>Data</th>
                 <th>Valor</th>
               </tr>
@@ -112,13 +117,6 @@
                 <td><input type="text" class="form-control"></td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-                <th colspan="2"><button type="button" class="btn btn-default" ng-click="adicionarCota()">
-                  <span class="glyphicon glyphicon-plus"></span> Adicionar</button>
-                </th>
-              </tr>
-            </tfoot>
           </table>
         </div>
       </div>

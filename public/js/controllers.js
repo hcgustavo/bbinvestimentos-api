@@ -113,7 +113,7 @@ $scope.cancelar = function(){
 // Implementa função para adicionar uma nova cota (data e valor) no histórico de cotas
 $scope.adicionarCota = function() {
   var tabela= document.getElementById("historicoCotacaoTable");
-  var row = tabela.insertRow(tabela.rows.length - 1);
+  var row = tabela.insertRow(2);
 
   var dataInput = document.createElement("input");
   dataInput.type = "text";
@@ -134,7 +134,7 @@ var atualizarHistoricoCotas = function() {
   var tabela= document.getElementById("historicoCotacaoTable");
   var cotas = new Array();
 
-  for(i = 1; i < tabela.rows.length - 1; i++) {
+  for(i = 2; i < tabela.rows.length; i++) {
     //console.log(tabela.rows[i].cells[0].children[0].value + " " + tabela.rows[i].cells[1].children[0].value);
     var cota = {data: tabela.rows[i].cells[0].children[0].value, valor: tabela.rows[i].cells[1].children[0].value};
     cotas.push(cota);
@@ -170,7 +170,7 @@ var atualizaFundo = function() {
   $scope.adicionar = function() {
     var tabela= document.getElementById("historicoCotacaoTable");
     var cotas = new Array();
-    for(i = 1; i < tabela.rows.length - 1; i++) {
+    for(i = 2; i < tabela.rows.length; i++) {
       //console.log(tabela.rows[i].cells[0].children[0].value + " " + tabela.rows[i].cells[1].children[0].value);
       var cota = {data: tabela.rows[i].cells[0].children[0].value, valor: tabela.rows[i].cells[1].children[0].value};
       cotas.push(cota);
@@ -197,7 +197,7 @@ var atualizaFundo = function() {
   // Implementa função para adicionar uma nova cota (data e valor) no histórico de cotas
   $scope.adicionarCota = function() {
     var tabela= document.getElementById("historicoCotacaoTable");
-    var row = tabela.insertRow(tabela.rows.length - 1);
+    var row = tabela.insertRow(2);
 
     var dataInput = document.createElement("input");
     dataInput.type = "text";
