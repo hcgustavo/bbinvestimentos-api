@@ -1,6 +1,6 @@
 # BB Investimentos API
 A RESTful API for all investment funds of Brazilian bank Banco do Brasil
-. Visit our website (available only in PT-BR): https://bbinvestimentos-api.herokuapp.com
+- Visit our website (available only in PT-BR): https://bbinvestimentos-api.herokuapp.com
 
 # How it works
 - Users can send HTTP requests through the GET method in order to obtain the desired data
